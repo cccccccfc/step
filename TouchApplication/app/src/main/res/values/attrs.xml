@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<declare-styleable name="TouchPullView">
+    <attr name="pColor" format="color"/>
+    <attr name="pRadus" format="dimension"/>
+    <attr name="pDragHeight" format="dimension"/>
+    <attr name="pTangentAngle" format="integer"/>
+    <attr name="pTargeWidth" format="dimension"/>
+    <attr name="pTargetGravityHeight" format="dimension"/>
+    <attr name="pContentDrawable" format="reference"/>
+    <attr name="pContentDrawableMargin" format="dimension"/>
+</declare-styleable>
+
+    <declare-styleable name="MyTextView">
+        <attr name="titleText" format="color"/>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="titleTextSize" format="integer"/>
+    </declare-styleable>
+</resources>
