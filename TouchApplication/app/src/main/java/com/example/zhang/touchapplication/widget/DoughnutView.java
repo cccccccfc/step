@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -19,7 +18,6 @@ import android.view.animation.Transformation;
 public class DoughnutView extends View implements Animation.AnimationListener {
   //View默认最小宽度
   private static final int DEFAULT_MIN_WIDTH = 400;
-
   //圆环颜色
   private int[] doughnutColors = new int[] {
       Color.parseColor("#F69005"), Color.parseColor("#F9B700"), Color.parseColor("#F69005")
@@ -29,10 +27,7 @@ public class DoughnutView extends View implements Animation.AnimationListener {
   private int height;
   private float currentValue = 0f;
   private Paint paint = new Paint();
-
   private boolean isShowing = true;
-
-  private boolean isSstnum = true;
 
   public DoughnutView(Context context) {
     this(context, null);
@@ -87,11 +82,7 @@ public class DoughnutView extends View implements Animation.AnimationListener {
     paint.setStrokeWidth(doughnutWidth);
     paint.setStyle(Paint.Style.STROKE);
     paint.setStrokeCap(Paint.Cap.ROUND);
-    if (doughnutColors.length > 1) {
-      paint.setShader(new SweepGradient(width / 2, height / 2, doughnutColors, null));
-    } else {
-      paint.setColor(doughnutColors[0]);
-    }
+    paint.setShader(new SweepGradient(width / 2, height / 2, doughnutColors, null));
     canvas.drawArc(rectF, 0, mSweepAngle, false, paint);
     barAnimation = new BarAnimation();
     barAnimation.setAnimationListener(this);
@@ -136,12 +127,10 @@ public class DoughnutView extends View implements Animation.AnimationListener {
   @Override public boolean onTouchEvent(MotionEvent event) {
     switch (event.getActionMasked()) {
       case MotionEvent.ACTION_DOWN:
-        Log.i("qaz", "2SetNum: "+isSstnum());
         break;
       case MotionEvent.ACTION_MOVE:
         break;
       case MotionEvent.ACTION_UP:
-
         break;
       case MotionEvent.ACTION_CANCEL:
         break;
@@ -167,7 +156,6 @@ public class DoughnutView extends View implements Animation.AnimationListener {
    * 新的旋转角度
    */
   public void changeAngle(float newAngle) {
-    //mOldAngle = mNewAngle;
     if (newAngle == 0) {
       setShowing(true);
     } else {
@@ -180,15 +168,10 @@ public class DoughnutView extends View implements Animation.AnimationListener {
   }
 
   @Override public void onAnimationStart(Animation animation) {
-    //setSstnum(true);
   }
 
   @Override public void onAnimationEnd(Animation animation) {
     changeAngle(0 * 1f);
-   // setSstnum(false);
-   // Log.i("qaz", "3SetNum: "+isSstnum());
-
-    // setValue(360 * 1f);
   }
 
   @Override public void onAnimationRepeat(Animation animation) {
@@ -206,13 +189,7 @@ public class DoughnutView extends View implements Animation.AnimationListener {
 
     @Override protected void applyTransformation(float interpolatedTime, Transformation t) {
       super.applyTransformation(interpolatedTime, t);
-      //if (mNewAngle - mOldAngle >= 0) {
-      //  // 正向
       mSweepAngle = interpolatedTime * (mNewAngle);
-      //} else {
-      //  //  逆向
-      //  mSweepAngle = interpolatedTime * (mNewAngle - mOldAngle);
-      //}
       postInvalidate();
     }
   }
@@ -224,14 +201,5 @@ public class DoughnutView extends View implements Animation.AnimationListener {
   public void setShowing(boolean showing) {
     isShowing = showing;
   }
-
-  public boolean isSstnum() {
-    return isSstnum;
-  }
-
-  public void setSstnum(boolean sstnum) {
-    isSstnum = sstnum;
-  }
-
 
 }
