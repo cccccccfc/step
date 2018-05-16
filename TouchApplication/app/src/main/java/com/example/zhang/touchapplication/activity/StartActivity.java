@@ -1,4 +1,4 @@
-package com.example.zhang.touchapplication;
+package com.example.zhang.touchapplication.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.example.zhang.touchapplication.R;
 import com.example.zhang.touchapplication.utils.BaseActivity;
 
 /**
@@ -55,9 +56,6 @@ public class StartActivity extends BaseActivity {
     });
   }
 
-  public void initData() {
-
-  }
   private long firstTime = 0;
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {

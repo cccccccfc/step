@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.zhang.touchapplication.R;
-import com.example.zhang.touchapplication.RecordActivity;
+import com.example.zhang.touchapplication.activity.RecordActivity;
 import com.example.zhang.touchapplication.recorddb.RecordEntity;
 import java.util.List;
 

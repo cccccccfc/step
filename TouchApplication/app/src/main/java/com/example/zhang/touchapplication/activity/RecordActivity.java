@@ -1,4 +1,4 @@
-package com.example.zhang.touchapplication;
+package com.example.zhang.touchapplication.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.example.zhang.touchapplication.R;
 import com.example.zhang.touchapplication.adapter.RecordAdapter;
 import com.example.zhang.touchapplication.recorddb.RecordDataBaseInfo;
 import com.example.zhang.touchapplication.recorddb.RecordEntity;
@@ -43,12 +44,9 @@ public class RecordActivity extends BaseActivity {
 
   private void initData() {
     recordEntities = new ArrayList<>();
-    //Log.i("qaz", "initData: "+recordDataBaseInfo.queryEntit().size());
     if (recordDataBaseInfo.queryEntit() != null && recordDataBaseInfo.queryEntit().size() > 0) {
       recRecord.setVisibility(View.VISIBLE);
       ivDummy.setVisibility(View.GONE);
-     // recordEntities.clear();
-
       recordEntities.addAll(recordDataBaseInfo.queryEntit());
       Collections.reverse(recordEntities);
       recordAdapter = new RecordAdapter(recordEntities, this);
@@ -64,7 +62,6 @@ public class RecordActivity extends BaseActivity {
   private void initView() {
     ivLeft.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-       // recordDataBaseInfo.clearDataBase();
       finish();
       }
     });

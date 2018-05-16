@@ -1,4 +1,4 @@
-package com.example.zhang.touchapplication;
+package com.example.zhang.touchapplication.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.example.zhang.touchapplication.R;
 import com.example.zhang.touchapplication.recorddb.RecordDataBaseInfo;
 import com.example.zhang.touchapplication.utils.BaseActivity;
 import com.example.zhang.touchapplication.widget.CustomDialog;
@@ -78,7 +79,6 @@ public class ActionActivity extends BaseActivity implements View.OnClickListener
   @Override public void onClick(View view) {
     switch (view.getId()) {
       case R.id.num_button:
-        // btn_anction_ripple.setValue(360 * 1.0f);
         SetNum();
         break;
       case R.id.button_start:
@@ -86,7 +86,6 @@ public class ActionActivity extends BaseActivity implements View.OnClickListener
         break;
       case R.id.button_stop:
         SetTimeSuspend();
-        // SetTimeStop();
         break;
       case R.id.iv_left:
         SetTimeSuspend();
@@ -120,24 +119,6 @@ public class ActionActivity extends BaseActivity implements View.OnClickListener
     mFirstStartTime = System.currentTimeMillis();
     btn_action_start.setText("开始");
     mHandler.sendEmptyMessage(1);
-    //if (btn_action_start.getText() == "开始") {
-    //  //mStart = true;
-    //  //mStartTime = System.currentTimeMillis();
-    //  //// Log.i("qaz", "onClick开始: " + mStartTime);
-    //  //btn_action_start.setText("暂停");
-    //  //mHandler.sendEmptyMessage(1);
-    //} else if (btn_action_start.getText() == "暂停") {
-    //  //mStart = false;
-    //  //tmpTime = System.currentTimeMillis();
-    //  //btn_action_start.setText("继续");
-    //  //mHandler.sendEmptyMessage(0);
-    //} else {
-    //  //mStart = true;
-    //  //long tmp = System.currentTimeMillis() - tmpTime;
-    //  //mStartTime = mStartTime + tmp;
-    //  //btn_action_start.setText("暂停");
-    //  //mHandler.sendEmptyMessage(1);
-    //}
   }
 
   /**
@@ -153,8 +134,6 @@ public class ActionActivity extends BaseActivity implements View.OnClickListener
   //更新显示时间和显示记录的时间
   private void updateTime() {
     currentTime = System.currentTimeMillis();
-    //Log.i("qaz", "updateTime1: "+currentTime);
-    //Log.i("qaz", "updateTime2: "+mStartTime);
     long aTime = currentTime - mStartTime;
     StringBuilder[] sb1 = new StringBuilder[2];
     sb1[0] = new StringBuilder();
@@ -311,7 +290,5 @@ public class ActionActivity extends BaseActivity implements View.OnClickListener
     if (year != null && mFirstStartTime != null && currentTime != null && numText != null) {
       recordDataBaseInfo.addHistoryName(year, mFirstStartTime, currentTime, numText);
     }
-    // recordDataBaseInfo.addHistoryName("", "", "", "");
-    //Log.i("qaz", "recordDb: "+recordDataBaseInfo.queryEntit().size());
   }
 }

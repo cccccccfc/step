@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.example.zhang.touchapplication.activity.StartActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 

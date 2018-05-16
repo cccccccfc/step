@@ -1,4 +1,4 @@
-package com.example.zhang.touchapplication;
+package com.example.zhang.touchapplication.activity;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.example.zhang.touchapplication.R;
 import com.example.zhang.touchapplication.utils.BaseActivity;
 import com.example.zhang.touchapplication.widget.ShareOptionDialog;
 
